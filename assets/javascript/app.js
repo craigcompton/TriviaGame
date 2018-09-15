@@ -4,7 +4,7 @@
 
 var intervalId;
 var number = 10;
-var answers = ["C","D","B"], 
+var answers = ["C","D","B"];
 
 // 
 // functions
@@ -24,16 +24,18 @@ function decrement() {
     }
 }
 
-function getCheckedValue( radioName ){
-    var radios = document.getElementsByName( radioName );
+// timeLeft();
+
+function getCheckedValue( radio ){
+    var radios = document.getElementsByName( radio );
     for(var y=0; y<radios.length; y++)
-      if(radios[y].checked) return radios[y].value;
+      if(radio[y].checked) return radio[y].value;
 }
 
 function getScore(){
   var score = 0;
   for (var i=0; i<answers.length; i++)
-    if(getCheckedValue("question"+i)===answers[i]) score += 1; // increment only
+    if(getCheckedValue("question"+i)===answers[i]) score ++; 
   return score;
 }
 
@@ -42,7 +44,7 @@ function returnScore(){
 }
 
 // 
-// call functions
+// call function
 // 
 
 timeLeft();
